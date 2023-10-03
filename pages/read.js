@@ -58,7 +58,7 @@ function Read({ data }) {
       </div>
     </Layout>
   );
-}
+} 
 
 export async function getStaticProps() {
   try {
@@ -69,6 +69,8 @@ export async function getStaticProps() {
       props: {
         data,
       },
+      // Revalidate data every 1 hour
+      revalidate: 3600, // in seconds
     };
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -80,5 +82,5 @@ export async function getStaticProps() {
     };
   }
 }
-
+  
 export default Read;
